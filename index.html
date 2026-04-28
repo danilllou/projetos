@@ -3,173 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto SOPA | Impacto Social</title>
+    <title>Instituto SOPA | UNESCO Framework</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .active-page { display: block !important; }
-        .page { display: none; }
-        .unesco-grid-card { transition: all 0.3s ease; border: 1px solid #e2e8f0; }
-        .unesco-grid-card:hover { transform: translateY(-5px); border-color: #4a88c7; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; }
+        .unesco-grid-item { aspect-ratio: 1 / 1; transition: transform 0.2s; cursor: pointer; position: relative; overflow: hidden; }
+        .unesco-grid-item:hover { transform: scale(1.02); z-index: 10; }
+        .unesco-blue { color: #0077b5; }
+        .bg-unesco-light { background-color: #f8f9fa; }
     </style>
 </head>
-<body class="bg-white text-slate-900">
+<body>
 
-    <nav class="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/cropped-cropped-logo-Instituto-Sopa.png" class="h-12 cursor-pointer" onclick="showPage('home')">
-            <div class="hidden md:flex space-x-8 font-bold text-xs uppercase tracking-widest text-slate-500">
-                <button onclick="showPage('home')" class="hover:text-blue-600">Início</button>
-                <button onclick="showPage('sobre')" class="hover:text-blue-600">Sobre Nós</button>
-                <button onclick="showPage('campanhas')" class="hover:text-blue-600">Campanhas</button>
-                <button onclick="showPage('ajudar')" class="hover:text-blue-600 text-red-600 underline underline-offset-4">Como Ajudar</button>
-            </div>
-            <button onclick="showPage('ajudar')" class="bg-[#d7282f] text-white px-6 py-3 font-black uppercase text-[10px] tracking-widest hover:bg-red-700 transition">Doar Agora</button>
+    <div class="bg-gray-100 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end space-x-6 text-[11px] font-semibold uppercase tracking-widest text-gray-500">
+            <a href="#" class="hover:text-blue-600">Notícias e Imprensa</a>
+            <a href="#" class="hover:text-blue-600">Eventos</a>
+            <a href="#" class="hover:text-blue-600">Parcerias</a>
+            <a href="#" class="hover:text-blue-600">Governança</a>
         </div>
-    </nav>
+    </div>
 
-    <main id="home" class="page active-page">
-        <section class="relative h-[80vh] flex items-center justify-center text-center bg-slate-900">
-            <img src="https://institutosopa.org.br/wp-content/uploads/2024/10/Dia-da-Crianca-Foto-Carlos-Manfredo-Jr.png" class="absolute inset-0 w-full h-full object-cover opacity-40">
-            <div class="relative z-10 max-w-4xl px-6">
-                <h1 class="text-5xl md:text-8xl font-black text-white leading-none mb-6">DIGNIDADE <br><span class="text-blue-400">PARA TODOS.</span></h1>
-                <p class="text-xl text-white font-light mb-8 max-w-2xl mx-auto">Atuamos na linha de frente contra a insegurança alimentar em Mogi das Cruzes há mais de 20 anos.</p>
-                <button onclick="showPage('sobre')" class="bg-white text-slate-900 px-10 py-4 font-bold uppercase tracking-widest text-xs hover:bg-gray-100 transition">Conheça o Legado</button>
+    <header class="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/cropped-cropped-logo-Instituto-Sopa.png" alt="SOPA" class="h-14">
+                <div class="h-10 w-[1px] bg-gray-300 mx-2"></div>
+                <span class="text-xs font-black uppercase leading-tight tracking-tighter w-24">Sociedade Organizada Pão que Alimenta</span>
             </div>
-        </section>
+            
+            <nav class="hidden lg:flex space-x-10 text-[13px] font-extrabold uppercase tracking-widest">
+                <a href="#" class="border-b-4 border-transparent hover:border-blue-600 pb-1">Sobre</a>
+                <a href="#" class="border-b-4 border-transparent hover:border-blue-600 pb-1">Expertise</a>
+                <a href="#" class="border-b-4 border-transparent hover:border-blue-600 pb-1">Impacto</a>
+                <a href="#" class="border-b-4 border-transparent hover:border-blue-600 pb-1">Recursos</a>
+            </nav>
 
-        <section class="py-24 max-w-7xl mx-auto px-6">
-            <h2 class="text-xs font-black tracking-[0.3em] uppercase text-blue-600 mb-4">Nossas Metas de Impacto</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-1">
-                <div class="bg-[#d7282f] p-8 text-white h-64 flex flex-col justify-end italic">
-                    <h3 class="text-4xl font-black mb-2">600</h3>
-                    <p class="text-sm font-bold uppercase tracking-tighter">Famílias Alimentadas</p>
-                </div>
-                <div class="bg-[#4a88c7] p-8 text-white h-64 flex flex-col justify-end italic">
-                    <h3 class="text-4xl font-black mb-2">2.5k</h3>
-                    <p class="text-sm font-bold uppercase tracking-tighter">Pessoas Assistidas</p>
-                </div>
-                <div class="bg-[#f5b155] p-8 text-white h-64 flex flex-col justify-end italic">
-                    <h3 class="text-4xl font-black mb-2">300</h3>
-                    <p class="text-sm font-bold uppercase tracking-tighter">Ações Anuais</p>
-                </div>
-                <div class="bg-slate-900 p-8 text-white h-64 flex flex-col justify-end italic">
-                    <h3 class="text-4xl font-black mb-2">20+</h3>
-                    <p class="text-sm font-bold uppercase tracking-tighter">Anos de História</p>
-                </div>
+            <button class="bg-[#0077b5] text-white px-6 py-3 font-black uppercase text-[10px] tracking-[0.2em] hover:bg-blue-800 transition">Doar Agora</button>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 py-4 text-[11px] font-bold text-gray-400 uppercase tracking-widest">
+        Início / Impacto / <span class="text-gray-900">Programas de Erradicação da Fome</span>
+    </div>
+
+    <section class="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h1 class="text-5xl md:text-6xl font-black mb-6 leading-none text-gray-900">
+                O Instituto SOPA e os Objetivos de Impacto Local
+            </h1>
+            <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                Utilizando nosso legado e experiência em diversas frentes, o Instituto SOPA trabalha consistentemente para implementar iniciativas alinhadas ao princípio de inclusão, garantindo que **"ninguém seja deixado para trás"** em Mogi das Cruzes.
+            </p>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-2xl">
+            <img src="https://institutosopa.org.br/wp-content/uploads/2024/10/Dia-da-Crianca-Foto-Carlos-Manfredo-Jr.png" class="w-full h-full object-cover">
+        </div>
+    </section>
+
+    <section class="bg-unesco-light py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h2 class="text-3xl font-black uppercase mb-4">Nossas frentes de ação para o bem comum</h2>
+                <p class="max-w-3xl text-gray-600">Mapeamos nossas atividades para garantir eficácia e transparência no atendimento às famílias vulneráveis.</p>
             </div>
-        </section>
-    </main>
 
-    <main id="sobre" class="page">
-        <section class="py-20 max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-16 items-start">
-                <div>
-                    <h2 class="text-6xl font-black text-slate-900 mb-8 uppercase leading-none">O Legado de <br><span class="text-red-600">Dona Odette.</span></h2>
-                    <p class="text-xl text-slate-600 leading-relaxed mb-6">O Instituto SOPA não é apenas uma ONG, é o resultado de uma vida dedicada ao próximo. Dona Odette Bueno de Almeida transformou sua própria casa na sede da esperança em Mogi.</p>
-                    <div class="space-y-4 border-l-4 border-blue-600 pl-6 py-4 bg-slate-50">
-                        <p class="font-bold uppercase tracking-widest text-xs text-blue-600 italic">Missão</p>
-                        <p class="text-slate-700">Combater a fome e a vulnerabilidade social através da ação direta e do amor ao próximo.</p>
-                    </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <div class="unesco-grid-item bg-[#e5243b] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">1</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Erradicação da Fome Imediata</p>
+                    <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/cropped-cropped-logo-Instituto-Sopa.png" class="absolute bottom-[-10px] right-[-10px] w-16 opacity-20 grayscale invert">
                 </div>
-                <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/dona-Odete.png" class="w-full grayscale shadow-2xl rounded-sm">
-            </div>
-        </section>
-
-        <section class="bg-slate-100 py-20">
-            <div class="max-w-7xl mx-auto px-6">
-                <h3 class="text-3xl font-black mb-12 uppercase text-center">Nossas Áreas de Especialidade</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white p-10 shadow-sm border-t-8 border-red-600">
-                        <h4 class="font-black text-xl mb-4">SEGURANÇA ALIMENTAR</h4>
-                        <p class="text-slate-500 text-sm">Distribuição diária de sopa e entrega mensal de cestas básicas para famílias cadastradas.</p>
-                    </div>
-                    <div class="bg-white p-10 shadow-sm border-t-8 border-blue-600">
-                        <h4 class="font-black text-xl mb-4">APOIO MATERIAL</h4>
-                        <p class="text-slate-500 text-sm">Doação de roupas, cobertores, utensílios domésticos e itens de higiene pessoal.</p>
-                    </div>
-                    <div class="bg-white p-10 shadow-sm border-t-8 border-orange-500">
-                        <h4 class="font-black text-xl mb-4">EVENTOS SOCIAIS</h4>
-                        <p class="text-slate-500 text-sm">Ações recreativas e educativas focadas em crianças e idosos da comunidade.</p>
-                    </div>
+                <div class="unesco-grid-item bg-[#dda63a] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">2</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Segurança Nutricional (Sopa)</p>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="campanhas" class="page">
-        <section class="py-20 max-w-7xl mx-auto px-6">
-            <h2 class="text-5xl font-black mb-16 uppercase">Campanhas & <br><span class="text-blue-600">Iniciativas.</span></h2>
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="group cursor-pointer">
-                    <img src="https://institutosopa.org.br/wp-content/uploads/2024/07/3-BING-SOLIDARIO-INSTITUTO-SOPA-FOTO-Jennifer-Oliveira-de-Lima-300x210.png" class="w-full h-80 object-cover mb-6">
-                    <h3 class="text-2xl font-black uppercase group-hover:text-blue-600">Bingo Solidário 2026</h3>
-                    <p class="text-slate-500 mt-2">Nossa maior fonte de arrecadação anual para manutenção da sede.</p>
+                <div class="unesco-grid-item bg-[#4c9f38] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">3</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Saúde e Bem-Estar Familiar</p>
                 </div>
-                <div class="group cursor-pointer">
-                    <img src="https://institutosopa.org.br/wp-content/uploads/2024/04/Instituto-Sopa-realizara-o-4-Strogonoff-Solidario-300x210.png" class="w-full h-80 object-cover mb-6">
-                    <h3 class="text-2xl font-black uppercase group-hover:text-blue-600">Strogonoff Solidário</h3>
-                    <p class="text-slate-500 mt-2">Unindo a gastronomia mogiana em prol das nossas 600 famílias.</p>
+                <div class="unesco-grid-item bg-[#c5192d] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">4</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Educação e Recreação Infantil</p>
                 </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="ajudar" class="page">
-        <section class="py-20 bg-slate-900 text-white min-h-[80vh] flex items-center">
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20">
-                <div>
-                    <h2 class="text-6xl font-black mb-8 uppercase tracking-tighter leading-none">A FOME <br><span class="text-red-600 italic">NÃO ESPERA.</span></h2>
-                    <p class="text-xl text-slate-400 mb-10">Sua doação é o que mantém as panelas cheias e as famílias amparadas. Escolha como quer transformar vidas hoje.</p>
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4 bg-slate-800 p-6 rounded-lg border border-slate-700">
-                            <div class="p-4 bg-red-600 rounded-full text-2xl">💰</div>
-                            <div>
-                                <h4 class="font-bold uppercase tracking-widest text-xs">PIX Direto</h4>
-                                <p class="text-xl font-mono text-white">00.000.000/0001-00</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="unesco-grid-item bg-[#ff3a21] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">5</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Dignidade e Vestuário</p>
                 </div>
-                <div class="bg-white text-slate-900 p-12 rounded-sm shadow-2xl">
-                    <h3 class="text-3xl font-black mb-6 uppercase">Seja Voluntário</h3>
-                    <form class="space-y-4">
-                        <input type="text" placeholder="Seu Nome" class="w-full border-b-2 border-slate-200 py-3 focus:border-blue-600 outline-none">
-                        <input type="email" placeholder="Seu E-mail" class="w-full border-b-2 border-slate-200 py-3 focus:border-blue-600 outline-none">
-                        <select class="w-full border-b-2 border-slate-200 py-3 focus:border-blue-600 outline-none bg-white">
-                            <option>Como quer ajudar?</option>
-                            <option>Doação de Alimentos</option>
-                            <option>Mão de obra (Cozinha)</option>
-                            <option>Eventos</option>
-                        </select>
-                        <button class="w-full bg-blue-600 text-white py-4 font-black uppercase text-xs tracking-[0.2em] mt-6 hover:bg-blue-700">Enviar Candidatura</button>
-                    </form>
+                <div class="unesco-grid-item bg-[#26bde2] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">6</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Apoio em Utensílios Domésticos</p>
+                </div>
+                <div class="unesco-grid-item bg-[#fcc30b] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">7</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Energia para o Trabalho Social</p>
+                </div>
+                <div class="unesco-grid-item bg-[#a21942] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">8</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Trabalho Decente e Parceiros</p>
+                </div>
+                <div class="unesco-grid-item bg-[#fd6925] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">9</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Inovação em Arrecadação</p>
+                </div>
+                <div class="unesco-grid-item bg-[#dd1367] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">10</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Redução das Desigualdades</p>
+                </div>
+                <div class="unesco-grid-item bg-[#fd9d24] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">11</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Comunidades Sustentáveis</p>
+                </div>
+                <div class="unesco-grid-item bg-[#bf8b2e] p-4 text-white flex flex-col justify-between">
+                    <span class="font-black text-xl">12</span>
+                    <p class="text-[10px] font-black uppercase leading-tight">Consumo e Produção Responsável</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-white border-t border-gray-200 py-16">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-[10px] font-black tracking-[0.5em] uppercase text-slate-400 mb-8">Instituto Sopa • Mogi das Cruzes • São Paulo</p>
-            <div class="flex justify-center space-x-12 font-bold text-xs uppercase tracking-widest text-slate-600">
-                <a href="#" class="hover:text-red-600">Facebook</a>
-                <a href="#" class="hover:text-red-600">Instagram</a>
-                <a href="#" class="hover:text-red-600">WhatsApp</a>
+    <section class="py-24 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 border-t border-gray-100">
+        <div class="relative">
+            <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/dona-Odete.png" class="w-full grayscale brightness-90 shadow-xl">
+            <div class="absolute bottom-0 left-0 bg-[#0077b5] text-white p-6 font-black uppercase text-xs tracking-[0.3em]">
+                O Legado de uma Fundadora
             </div>
+        </div>
+        <div class="flex flex-col justify-center">
+            <h2 class="text-4xl font-black mb-8 text-gray-900 uppercase">Dona Odette: <br>Uma vida dedicada ao bem.</h2>
+            <div class="prose text-gray-600 leading-relaxed space-y-4">
+                <p>Começou a assistir os mais necessitados na década de 1970 e se manteve atuante até maio de 2020. A sua vida foi dedicada a servir a quem precisa.</p>
+                <p>A nova agenda do Instituto SOPA representa um passo significativo no reconhecimento da contribuição da Solidariedade e Amor ao Próximo para o desenvolvimento local.</p>
+            </div>
+            <button class="mt-10 self-start border-b-2 border-gray-900 pb-2 font-black uppercase text-[10px] tracking-widest hover:text-blue-600 hover:border-blue-600 transition">Ver biografia completa</button>
+        </div>
+    </section>
+
+    <footer class="bg-[#1a1a1a] text-white py-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 border-b border-gray-800 pb-16">
+            <div class="col-span-1">
+                <img src="https://institutosopa.org.br/wp-content/uploads/2021/10/cropped-cropped-logo-Instituto-Sopa.png" class="h-10 brightness-0 invert mb-6">
+                <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Explore</p>
+                <ul class="text-xs space-y-3 text-gray-300 font-medium">
+                    <li><a href="#" class="hover:text-blue-400">Notícias Recentes</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Calendário de Ações</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Visite o Instituto</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Transparência</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Termos de Uso</p>
+                <ul class="text-xs space-y-3 text-gray-300 font-medium">
+                    <li><a href="#" class="hover:text-blue-400">Nome e Logo do Instituto</a></li>
+                    <li><a href="#" class="hover:text-blue-400">FAQ</a></li>
+                    <li><a href="#" class="hover:text-blue-400">Privacidade</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="text-[11px] text-gray-400 font-bold uppercase tracking-widest mb-6">Siga o SOPA</p>
+                <div class="flex space-x-4">
+                    <span class="text-gray-400 text-xs">Instagram</span>
+                    <span class="text-gray-400 text-xs">Facebook</span>
+                    <span class="text-gray-400 text-xs">YouTube</span>
+                </div>
+            </div>
+            <div>
+                <button class="w-full bg-white text-black py-4 font-black uppercase text-[10px] tracking-widest hover:bg-blue-500 hover:text-white transition">Inscreva-se na Newsletter</button>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 py-8 text-[10px] text-gray-500 font-bold uppercase tracking-[0.3em] flex justify-between">
+            <span>© 2026 Instituto SOPA | Mogi das Cruzes</span>
+            <span>Inspirado pelo Framework UNESCO</span>
         </div>
     </footer>
 
-    <script>
-        function showPage(pageId) {
-            // Esconde todas as páginas
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
-            // Mostra a selecionada
-            document.getElementById(pageId).classList.add('active-page');
-            // Rola para o topo
-            window.scrollTo(0,0);
-        }
-    </script>
 </body>
 </html>
