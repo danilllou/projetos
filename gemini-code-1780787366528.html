@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Instituto Sopa Dona Odette</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --laranja: #F26522;
+            --azul-sopa: #1D5B9E;
+            --azul-claro: #6AADE4;
+            --creme: #FCF9F2;
+            --verde: #50A756;
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-gray: #F5F7F9;
+            --border-radius: 15px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', 'serif';
+        }
+        
+        body {
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+        }
+
+        p, button, small, strong, div.step div small, ul, li { 
+            font-family: 'Arial', sans-serif; 
+        }
+
+        /* Navegação Global */
+        header {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--azul-sopa);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .logo i {
+            color: var(--laranja);
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--laranja);
+            background: var(--creme);
+        }
+
+        /* Container das Páginas */
+        .page {
+            display: none;
+            animation: fadeIn 0.4s ease;
+            padding-bottom: 50px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Utilitários */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--azul-sopa);
+            font-size: 2.5rem;
+            font-weight: normal;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover { transform: scale(1.05); }
+        .btn-primary { background: var(--laranja); color: white; }
+        .btn-secondary { background: var(--azul-sopa); color: white; }
+        .btn-outline { background: transparent; border: 2px solid var(--laranja); color: var(--laranja); }
+        .btn-white { background: white; color: var(--azul-sopa); }
+
+        /* Ícones Padrão */
+        .icon-large {
+            font-size: 2.5rem;
+            color: var(--laranja);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* --- PÁGINA: SOBRE NÓS --- */
+        .hero-sobre {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            gap: 2rem;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-sobre-img {
+            width: 400px;
+            height: 350px;
+            background-image: url('https://images.unsplash.com/photo-1593113565214-80afcb4a4771?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-sobre-text {
+            flex: 1;
+            padding: 2rem 3rem;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .valor-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+        }
+        
+        .valor-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+
+        .processo {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 20px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+        }
+
+        .step-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: var(--creme);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--azul-sopa);
+            position: relative;
+        }
+
+        .step-num {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 25px;
+            height: 25px;
+            background: var(--laranja);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .citacao {
+            background: var(--creme);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            font-style: italic;
+            font-size: 1.8rem;
+            color: var(--azul-sopa);
+            margin-bottom: 3rem;
+        }
+
+        .cta-split {
+            display: flex;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            color: white;
+        }
+
+        .cta-half {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .cta-half.orange { background: var(--laranja); }
+        .cta-half.blue { background: var(--azul-sopa); }
+
+        /* --- PÁGINA: ODS --- */
+        .hero-ods {
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-ods-text { 
+            flex: 1; 
+            padding: 3rem;
+        }
+        
+        .hero-ods-img {
+            flex: 1;
+            height: 100%;
+            min-height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .ods-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .ods-card {
+            width: 130px;
+            height: 130px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-top: 5px solid transparent;
+        }
+
+        .ods-card i {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .ods-card:hover, .ods-card.active {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: #fafafc;
+            border-top-color: inherit;
+        }
+
+        .ods-details-panel {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            border: 1px solid #f0f0f0;
+            display: none;
+            animation: fadeInDetails 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        @keyframes fadeInDetails {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .atuacao-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .atuacao-item {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        /* --- PÁGINA: MANUAL DA MARCA --- */
+        .hero-manual {
+            background: white;
+            display: flex;
+            align-items: center;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .hero-manual-text {
+            flex: 1;
+            padding: 3rem;
+        }
+
+        .manual-mockup {
+            flex: 1;
+            height: 100%;
+            min-height: 400px;
+            background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .manual-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 3rem;
+        }
+
+        .card-manual {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .paleta {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .cor {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .essencia-grid {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .footer-manual {
+            background: var(--creme);
+            padding: 2rem 3rem;
+            border-radius: var(--border-radius);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e8e5de;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-bowl-food"></i>
+            Instituto Sopa
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="showPage('sobre')" id="link-sobre" class="active">Sobre Nós</a></li>
+                <li><a onclick="showPage('ods')" id="link-ods">Impacto ODS</a></li>
+                <li><a onclick="showPage('manual')" id="link-manual">Manual da Marca</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="sobre" class="page active container">
+        <div class="hero-sobre">
+            <div class="hero-sobre-img"></div>
+            <div class="hero-sobre-text">
+                <span style="color: var(--laranja); font-weight: bold; font-family: Arial; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fa-solid fa-heart"></i> Um Legado de Amor</span>
+                <h1 style="color: var(--azul-sopa); font-size: 3rem; margin: 15px 0;">O exemplo de<br>Dona Odette</h1>
+                <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">No Instituto Sopa, seguimos o exemplo de uma vida dedicada ao amor, à solidariedade, à dignidade e ao cuidado humanizado com cada pessoa que cruza nosso caminho.</p>
+                <button class="btn btn-primary">Conheça nossa história</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">Valores que nos guiam</h2>
+
+        <div class="valores-grid">
+            <div class="valor-card">
+                <i class="fa-solid fa-heart icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Amor ao próximo</h3>
+                <p><small>Ver o outro com profunda empatia e respeito genuíno.</small></p>
+            </div>
+            <div class="valor-card">
+                <i class="fa-solid fa-handshake-angle icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Solidariedade</h3>
+                <p><small>Acreditamos que juntos somos mais fortes e vamos mais longe.</small></p>
+            </div>
+            <div class="valor-card">
+                <i class="fa-solid fa-sun icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Dignidade</h3>
+                <p><small>Cada pessoa importa, tem valor e merece absoluto respeito.</small></p>
+            </div>
+            <div class="valor-card">
+                <i class="fa-solid fa-house-chimney-window icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Acolhimento</h3>
+                <p><small>Abrir as portas e o coração para quem mais precisa.</small></p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Nossa Forma de Atuar</h2>
+        <div class="processo">
+            <div class="step">
+                <div class="step-icon-wrapper">
+                    <i class="fa-solid fa-ear-listen"></i>
+                    <div class="step-num">1</div>
+                </div>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--azul-sopa);">Escuta</strong>
+                    <br><small style="color: var(--text-light);">Acolhemos histórias</small>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right" style="color: #ddd; font-size: 1.5rem;"></i>
+            <div class="step">
+                <div class="step-icon-wrapper">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <div class="step-num" style="background: var(--azul-sopa);">2</div>
+                </div>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--azul-sopa);">Cuidado</strong>
+                    <br><small style="color: var(--text-light);">Oferecemos apoio</small>
+                </div>
+            </div>
+            <i class="fa-solid fa-arrow-right" style="color: #ddd; font-size: 1.5rem;"></i>
+            <div class="step">
+                <div class="step-icon-wrapper">
+                    <i class="fa-solid fa-seedling" style="color: var(--verde);"></i>
+                    <div class="step-num" style="background: var(--verde);">3</div>
+                </div>
+                <div>
+                    <strong style="font-size: 1.2rem; color: var(--azul-sopa);">Transformação</strong>
+                    <br><small style="color: var(--text-light);">Rompemos ciclos</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="citacao">
+            <i class="fa-solid fa-quote-left" style="color: var(--laranja); opacity: 0.3; font-size: 3rem; position: absolute; top: 20px; left: 30px;"></i>
+            "O segredo é simples: amar, servir e não olhar a quem."<br>
+            <small style="color: var(--laranja); font-size: 1.2rem; font-style: normal; font-weight: bold; font-family: Arial; display: block; margin-top: 15px;">- Dona Odette</small>
+        </div>
+    </div>
+
+    <div id="ods" class="page container">
+        <div class="hero-ods">
+            <div class="hero-ods-text">
+                <span style="color: var(--laranja); font-weight: bold; font-family: Arial; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fa-solid fa-globe"></i> Desenvolvimento Sustentável</span>
+                <h1 style="color: var(--azul-sopa); font-size: 3.5rem; margin: 15px 0;">ODS e<br>Agenda 2030</h1>
+                <p style="margin-bottom: 2rem; color: var(--text-light); font-size: 1.1rem; line-height: 1.6;">O Instituto SOPA atua todos os dias para promover o desenvolvimento sustentável em Mogi das Cruzes, alinhado às metas globais da ONU.</p>
+                <div style="display: flex; gap: 15px;">
+                    <button class="btn btn-primary">Apoiar Causa</button>
+                    <button class="btn btn-outline" style="border-color: var(--azul-sopa); color: var(--azul-sopa);">Ver Relatório</button>
+                </div>
+            </div>
+            <div class="hero-ods-img"></div>
+        </div>
+
+        <h2 class="section-title">Objetivos Globais (Clique para expandir)</h2>
+        
+        <div class="ods-grid">
+            <div class="ods-card" style="color: #E5243B; border-top-color: #E5243B;" onclick="showODSDetails(1)">
+                <i class="fa-solid fa-people-group"></i>
+                1<br><small>Erradicação da Pobreza</small>
+            </div>
+            <div class="ods-card" style="color: #DDA63A; border-top-color: #DDA63A;" onclick="showODSDetails(2)">
+                <i class="fa-solid fa-wheat-awn"></i>
+                2<br><small>Fome Zero</small>
+            </div>
+            <div class="ods-card" style="color: #4C9F38; border-top-color: #4C9F38;" onclick="showODSDetails(3)">
+                <i class="fa-solid fa-heart-pulse"></i>
+                3<br><small>Saúde e Bem-Estar</small>
+            </div>
+            <div class="ods-card" style="color: #DD1367; border-top-color: #DD1367;" onclick="showODSDetails(10)">
+                <i class="fa-solid fa-scale-balanced"></i>
+                10<br><small>Redução das Desigualdades</small>
+            </div>
+            <div class="ods-card" style="color: #FD6925; border-top-color: #FD6925;" onclick="showODSDetails(11)">
+                <i class="fa-solid fa-city"></i>
+                11<br><small>Cidades Sustentáveis</small>
+            </div>
+            <div class="ods-card" style="color: #19486A; border-top-color: #19486A;" onclick="showODSDetails(17)">
+                <i class="fa-solid fa-handshake"></i>
+                17<br><small>Parcerias</small>
+            </div>
+        </div>
+
+        <div id="ods-details-panel" class="ods-details-panel">
+            <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 1.5rem;">
+                <div id="ods-icon-display" style="width: 60px; height: 60px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;"></div>
+                <h3 id="ods-title" style="color: var(--azul-sopa); flex: 1; font-size: 1.8rem;"></h3>
+                <button onclick="closeODSDetails()" class="btn btn-outline" style="padding: 8px 15px; border-radius: 5px; font-size: 0.9rem;"><i class="fa-solid fa-xmark"></i> Fechar</button>
+            </div>
+            <p id="ods-description" style="color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.6; font-size: 1.1rem;"></p>
+            <div style="background: var(--bg-gray); padding: 1.5rem; border-radius: 10px;">
+                <strong style="color: var(--laranja); font-size: 1.1rem; display: block; margin-bottom: 10px;"><i class="fa-solid fa-bullseye"></i> Nossa Ação Prática:</strong>
+                <ul id="ods-actions" style="margin-left: 25px; color: var(--text-dark); line-height: 1.8;"></ul>
+            </div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 4rem;">Nossas Frentes de Atuação</h2>
+        <div class="atuacao-grid">
+            <div class="atuacao-item">
+                <i class="fa-solid fa-bowl-rice icon-large"></i>
+                <h4 style="color: var(--azul-sopa); margin-bottom: 10px;">Ajuda Alimentar</h4>
+                <p><small style="color: var(--text-light);">Distribuímos sopa quente e cestas básicas semanalmente.</small></p>
+            </div>
+            <div class="atuacao-item">
+                <i class="fa-solid fa-hands-holding-child icon-large"></i>
+                <h4 style="color: var(--azul-sopa); margin-bottom: 10px;">Acolhimento</h4>
+                <p><small style="color: var(--text-light);">Oferecemos escuta ativa, suporte psicológico e social.</small></p>
+            </div>
+            <div class="atuacao-item">
+                <i class="fa-solid fa-handshake icon-large"></i>
+                <h4 style="color: var(--azul-sopa); margin-bottom: 10px;">Parcerias</h4>
+                <p><small style="color: var(--text-light);">Conectamos empresas locais com a necessidade da comunidade.</small></p>
+            </div>
+            <div class="atuacao-item">
+                <i class="fa-solid fa-users icon-large"></i>
+                <h4 style="color: var(--azul-sopa); margin-bottom: 10px;">Voluntariado</h4>
+                <p><small style="color: var(--text-light);">Mobilizamos cidadãos para doar tempo e talento.</small></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="manual" class="page container">
+        <div class="hero-manual">
+            <div class="hero-manual-text">
+                <span style="color: var(--laranja); font-weight: bold; font-family: Arial; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fa-solid fa-swatchbook"></i> Nossa Identidade</span>
+                <h1 style="color: var(--azul-sopa); font-size: 3.5rem; margin: 15px 0;">Manual<br>da Marca</h1>
+                <p style="margin-bottom: 2rem; color: var(--text-light); font-size: 1.1rem; line-height: 1.6;">Nosso guia definitivo para manter uma comunicação visual e verbal consistente, autêntica e perfeitamente alinhada com o propósito social do Instituto Sopa.</p>
+                <button class="btn btn-secondary"><i class="fa-solid fa-book-open"></i> Ver Diretrizes Online</button>
+            </div>
+            <div class="manual-mockup"></div>
+        </div>
+
+        <div class="manual-cards">
+            <div class="card-manual">
+                <h3 style="color: var(--azul-sopa); margin-bottom: 15px; font-size: 1.5rem;"><i class="fa-solid fa-palette" style="color: var(--laranja);"></i> Cores Institucionais</h3>
+                <p style="color: var(--text-light); font-family: Arial;">A paleta reflete calor, esperança e confiança.</p>
+                <div class="paleta">
+                    <div class="cor" style="background: var(--laranja);" title="Laranja Principal"></div>
+                    <div class="cor" style="background: var(--azul-sopa);" title="Azul Sopa"></div>
+                    <div class="cor" style="background: var(--azul-claro);" title="Azul Claro"></div>
+                    <div class="cor" style="background: var(--creme); border: 1px solid #ddd;" title="Creme"></div>
+                    <div class="cor" style="background: var(--verde);" title="Verde Sustentável"></div>
+                </div>
+            </div>
+            <div class="card-manual">
+                <h3 style="color: var(--azul-sopa); margin-bottom: 15px; font-size: 1.5rem;"><i class="fa-solid fa-star" style="color: var(--laranja);"></i> Pilares Visuais</h3>
+                <div class="essencia-grid">
+                    <div>
+                        <i class="fa-solid fa-compass icon-large"></i>
+                        <strong style="display: block; margin-bottom: 5px;">Símbolo</strong>
+                        <p><small style="color: var(--text-light);">Acolhimento</small></p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-font icon-large" style="color: var(--azul-sopa);"></i>
+                        <strong style="display: block; margin-bottom: 5px;">Tipografia</strong>
+                        <p><small style="color: var(--text-light);">Clara e Amigável</small></p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-comment-dots icon-large"></i>
+                        <strong style="display: block; margin-bottom: 5px;">Voz</strong>
+                        <p><small style="color: var(--text-light);">Humana e Esperançosa</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-manual">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <div style="width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--laranja); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <i class="fa-solid fa-download"></i>
+                </div>
+                <div>
+                    <h3 style="color: var(--azul-sopa); font-size: 1.5rem; margin-bottom: 5px;">Precisa aplicar nossa marca?</h3>
+                    <p style="color: var(--text-light); font-family: Arial;">Faça o download do PDF completo com as regras de uso.</p>
+                </div>
+            </div>
+            <button class="btn btn-primary" style="padding: 15px 30px; font-size: 1.1rem;"><i class="fa-solid fa-file-pdf"></i> Baixar Manual PDF</button>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Ocultar todas as páginas
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Atualizar menu
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Ativar selecionada
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('link-' + pageId).classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (pageId === 'ods') { closeODSDetails(); }
+        }
+
+        // Banco de Dados ODS
+        const odsContent = {
+            1: { title: "Erradicação da Pobreza", color: "#E5243B", icon: "fa-people-group", description: "O objetivo é acabar com a pobreza em todas as suas formas. O Instituto Sopa atua diretamente na base da pirâmide garantindo dignidade mínima.", actions: ["Distribuição semanal de alimentos.", "Doação de roupas e itens de higiene.", "Encaminhamento para assistência social do município."] },
+            2: { title: "Fome Zero", color: "#DDA63A", icon: "fa-wheat-awn", description: "Visa acabar com a fome, alcançar a segurança alimentar e melhoria da nutrição. Este é o coração e a origem do Instituto Sopa.", actions: ["Preparo e entrega de centenas de litros de sopa nutritiva.", "Montagem e distribuição de cestas básicas.", "Aproveitamento integral de alimentos doados."] },
+            3: { title: "Saúde e Bem-Estar", color: "#4C9F38", icon: "fa-heart-pulse", description: "Garantir vida saudável e promover bem-estar para todos. Acreditamos que a alimentação adequada é o primeiro passo para a saúde física e mental.", actions: ["Nutrição adequada para fortalecimento imunológico.", "Acolhimento psicológico básico por voluntários.", "Rodas de conversa para promoção de bem-estar emocional."] },
+            10: { title: "Redução das Desigualdades", color: "#DD1367", icon: "fa-scale-balanced", description: "Reduzir a desigualdade dentro da sociedade. Nosso acolhimento foca na inclusão social de populações marginalizadas.", actions: ["Atendimento sem distinção ou julgamento.", "Promoção de eventos de integração na comunidade.", "Projetos de capacitação para geração de renda."] },
+            11: { title: "Cidades Sustentáveis", color: "#FD6925", icon: "fa-city", description: "Tornar as cidades e os assentamentos humanos inclusivos, seguros, resilientes e sustentáveis.", actions: ["Fortalecimento do senso de comunidade em Mogi das Cruzes.", "Apoio em situações de vulnerabilidade climática (ex: campanhas de inverno).", "Zeladoria comunitária e campanhas de conscientização local."] },
+            17: { title: "Parcerias", color: "#19486A", icon: "fa-handshake", description: "Fortalecer os meios de implementação e revitalizar a parceria global para o desenvolvimento sustentável. Ninguém faz nada sozinho.", actions: ["Parceria com supermercados e produtores locais.", "Engajamento de empresas patrocinadoras.", "Trabalho em rede com outras ONGs da região."] }
+        };
+
+        function showODSDetails(odsNumber) {
+            const panel = document.getElementById('ods-details-panel');
+            const data = odsContent[odsNumber];
+            
+            // Aplicar Dados
+            document.getElementById('ods-title').textContent = data.title;
+            document.getElementById('ods-description').textContent = data.description;
+            
+            const iconDisplay = document.getElementById('ods-icon-display');
+            iconDisplay.style.backgroundColor = data.color;
+            iconDisplay.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+            
+            // Renderizar Lista de Ações
+            const actionsList = document.getElementById('ods-actions');
+            actionsList.innerHTML = '';
+            data.actions.forEach(action => {
+                actionsList.innerHTML += `<li>${action}</li>`;
+            });
+            
+            // Destacar o card clicado
+            document.querySelectorAll('.ods-card').forEach(card => card.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            event.currentTarget.style.borderTopColor = data.color;
+
+            // Mostrar e rolar a tela
+            panel.style.display = 'block';
+            setTimeout(() => {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+
+        function closeODSDetails() {
+            document.getElementById('ods-details-panel').style.display = 'none';
+            document.querySelectorAll('.ods-card').forEach(card => {
+                card.classList.remove('active');
+                card.style.borderTopColor = 'transparent';
+            });
+        }
+    </script>
+</body>
+</html>
