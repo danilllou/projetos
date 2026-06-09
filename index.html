@@ -30,7 +30,7 @@
             color: var(--text-dark);
         }
 
-        p, button, small, strong, div.step div small, ul, li { 
+        p, button, small, strong, div.step div small, ul, li, h4 { 
             font-family: 'Arial', sans-serif; 
         }
 
@@ -159,6 +159,7 @@
             background-image: url('https://imgur.com/a/KbPyCwW');
             background-size: cover;
             background-position: center;
+            background-color: #eaeaea;
         }
 
         .hero-sobre-text {
@@ -245,27 +246,8 @@
             font-size: 1.8rem;
             color: var(--azul-sopa);
             margin-bottom: 3rem;
+            position: relative;
         }
-
-        .cta-split {
-            display: flex;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            color: white;
-        }
-
-        .cta-half {
-            flex: 1;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .cta-half.orange { background: var(--laranja); }
-        .cta-half.blue { background: var(--azul-sopa); }
 
         /* --- PÁGINA: ODS --- */
         .hero-ods {
@@ -393,7 +375,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .card-manual {
@@ -432,6 +414,7 @@
             justify-content: space-between;
             align-items: center;
             border: 1px solid #e8e5de;
+            margin-top: 2rem;
         }
     </style>
 </head>
@@ -452,6 +435,41 @@
     </header>
 
     <div id="sobre" class="page active container">
-
+        
         <div class="secao-apoiar-destaque" style="background: linear-gradient(135deg, var(--azul-sopa), #133c69); padding: 4.5rem 2rem; border-radius: var(--border-radius); text-align: center; color: white; margin-bottom: 4rem; box-shadow: 0 10px 30px rgba(29, 91, 158, 0.2);">
             <i class="fa-solid fa-hand-holding-heart" style="font-size: 4rem; color: var(--laranja); margin-bottom: 1.5rem; display: inline-block;"></i>
+            <h2 style="font-size: 3rem; color: white; margin-bottom: 1.5rem; font-family: Arial, sans-serif; font-weight: bold;">Transforme Vidas. Apoie a Nossa Causa.</h2>
+            <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem auto; line-height: 1.6; font-family: Arial, sans-serif; color: #eaf2fa; opacity: 0.95;">
+                O Instituto SOPA atua diariamente para combater a vulnerabilidade social e promover a dignidade. Sua contribuição se transforma diretamente em refeições, agasalhos, escuta e acolhimento estruturado para quem mais precisa.
+            </p>
+            <button class="btn btn-primary" style="font-size: 1.3rem; padding: 18px 45px; background-color: var(--laranja); box-shadow: 0 5px 20px rgba(242, 101, 34, 0.4);">
+                <i class="fa-solid fa-heart" style="margin-right: 10px;"></i> Quero Apoiar a Causa Agora
+            </button>
+        </div>
+
+        <div class="hero-sobre">
+            <div class="hero-sobre-img"></div>
+            <div class="hero-sobre-text">
+                <span style="color: var(--laranja); font-weight: bold; font-family: Arial; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;"><i class="fa-solid fa-heart"></i> Um Legado de Amor</span>
+                <h1 style="color: var(--azul-sopa); font-size: 3rem; margin: 15px 0;">O exemplo de<br>Dona Odette</h1>
+                <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.5rem;">No Instituto Sopa, seguimos o exemplo de uma vida dedicada ao amor, à solidariedade, à dignidade e ao cuidado humanizado com cada pessoa que cruza nosso caminho.</p>
+                <button class="btn btn-primary">Conheça nossa história</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">Valores que nos guiam</h2>
+
+        <div class="valores-grid">
+            <div class="valor-card">
+                <i class="fa-solid fa-heart icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Amor ao próximo</h3>
+                <p><small>Ver o outro com profunda empatia e respeito genuíno.</small></p>
+            </div>
+            <div class="valor-card">
+                <i class="fa-solid fa-handshake-angle icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-sopa);">Solidariedade</h3>
+                <p><small>Acreditamos que juntos somos mais fortes e vamos mais longe.</small></p>
+            </div>
+            <div class="valor-card">
+                <i class="fa-solid fa-sun icon-large"></i>
+                <h3 style="margin-bottom: 10px; color: var(--azul-
