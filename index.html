@@ -33,6 +33,42 @@
         p, button, small, strong, div.step div small, ul, li { 
             font-family: 'Arial', sans-serif; 
         }
+        .secao-apoiar-destaque {
+    position: relative;
+    overflow: hidden;
+    padding: 4.5rem 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: white;
+    margin-top: 4rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.secao-apoiar-destaque::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(29,91,158,.80),
+            rgba(19,60,105,.90)
+        ),
+        url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.08);
+    filter: blur(8px);
+
+    z-index: 1;
+}
+
+.secao-apoiar-destaque > * {
+    position: relative;
+    z-index: 2;
+}
 
         /* Navegação Global */
         header {
@@ -529,7 +565,7 @@
     </header>
 
     <div id="sobre" class="page active container">
-        <div class="secao-apoiar-destaque" style="background: linear-gradient(135deg, var(--azul-sopa), #133c69); padding: 4.5rem 2rem; border-radius: var(--border-radius); text-align: center; color: white; margin-top: 4rem; box-shadow: 0 10px 30px rgba(29, 91, 158, 0.2);">
+        <div class="secao-apoiar-destaque">
             <i class="fa-solid fa-hand-holding-heart" style="font-size: 4rem; color: var(--laranja); margin-bottom: 1.5rem; display: inline-block;"></i>
             <h2 style="font-size: 3rem; color: white; margin-bottom: 1.5rem; font-family: Arial, sans-serif; font-weight: bold;">Transforme Vidas. Apoie a Nossa Causa.</h2>
             <p style="font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem auto; line-height: 1.6; font-family: Arial, sans-serif; color: #eaf2fa; opacity: 0.95;">
