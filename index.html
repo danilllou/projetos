@@ -1,3 +1,8 @@
+Aqui está o arquivo completo com a nova aba "Seja um Parceiro" integrada. Você pode copiar todo o bloco abaixo e salvar diretamente no seu arquivo `.html`.
+
+A nova seção inclui um painel de vantagens interativo (clicável) voltado para o engajamento corporativo corporativo (ESG) e o espaço reservado para as logos que você enviará depois.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -247,26 +252,6 @@
             margin-bottom: 3rem;
         }
 
-        .cta-split {
-            display: flex;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            color: white;
-        }
-
-        .cta-half {
-            flex: 1;
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 15px;
-        }
-
-        .cta-half.orange { background: var(--laranja); }
-        .cta-half.blue { background: var(--azul-sopa); }
-
         /* --- PÁGINA: ODS --- */
         .hero-ods {
             background: white;
@@ -364,6 +349,104 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.03);
         }
 
+        /* --- PÁGINA: SEJA UM PARCEIRO --- */
+        .hero-parceiro {
+            background: linear-gradient(135deg, var(--azul-sopa), #133c69);
+            color: white;
+            padding: 4rem 3rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(29, 91, 158, 0.2);
+        }
+
+        .hero-parceiro h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .hero-parceiro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.6;
+            color: #eaf2fa;
+        }
+
+        .vantagens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 2rem;
+        }
+
+        .vantagem-card {
+            background: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .vantagem-card:hover, .vantagem-card.active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--laranja);
+        }
+
+        .vantagem-panel {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--laranja);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 4rem;
+            animation: fadeInDetails 0.3s ease;
+        }
+
+        .parceiros-atuais {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .logos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 2rem;
+        }
+
+        .logo-placeholder {
+            width: 160px;
+            height: 90px;
+            background: var(--bg-gray);
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .logo-placeholder:hover {
+            background: var(--creme);
+            border-color: var(--laranja);
+            color: var(--laranja);
+        }
+
         /* --- PÁGINA: MANUAL DA MARCA --- */
         .hero-manual {
             background: white;
@@ -446,6 +529,7 @@
             <ul>
                 <li><a onclick="showPage('sobre')" id="link-sobre" class="active">Sobre Nós</a></li>
                 <li><a onclick="showPage('ods')" id="link-ods">Impacto ODS</a></li>
+                <li><a onclick="showPage('parceiro')" id="link-parceiro">Seja um Parceiro</a></li>
                 <li><a onclick="showPage('manual')" id="link-manual">Manual da Marca</a></li>
             </ul>
         </nav>
@@ -621,6 +705,68 @@
         </div>
     </div>
 
+    <div id="parceiro" class="page container">
+        <div class="hero-parceiro">
+            <i class="fa-solid fa-building-ngo" style="font-size: 4rem; color: var(--laranja); margin-bottom: 1rem;"></i>
+            <h1>Sua Empresa Fazendo a Diferença</h1>
+            <p>Junte-se ao Instituto Sopa e alinhe os propósitos da sua marca com o impacto social real. Construímos parcerias sólidas voltadas para o desenvolvimento da comunidade e as práticas ESG.</p>
+            <button class="btn btn-primary" style="font-size: 1.1rem; padding: 15px 35px; margin-top: 1rem;">
+                <i class="fa-solid fa-envelope" style="margin-right: 10px;"></i> Falar com o time de Captação
+            </button>
+        </div>
+
+        <h2 class="section-title">Vantagens de Apoiar o Instituto Sopa</h2>
+        
+        <div class="vantagens-grid">
+            <div class="vantagem-card" onclick="showVantagem('esg')">
+                <i class="fa-solid fa-leaf icon-large" style="color: var(--verde);"></i>
+                <h3 style="color: var(--azul-sopa); margin-bottom: 10px;">Fortalecimento ESG</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Ações concretas para o pilar "Social" da sua empresa.</p>
+                <small style="color: var(--laranja); display: block; margin-top: 15px; font-weight: bold;">Clique para ver mais <i class="fa-solid fa-chevron-down"></i></small>
+            </div>
+            <div class="vantagem-card" onclick="showVantagem('engajamento')">
+                <i class="fa-solid fa-users-gear icon-large" style="color: var(--azul-claro);"></i>
+                <h3 style="color: var(--azul-sopa); margin-bottom: 10px;">Engajamento Interno</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Projetos de voluntariado corporativo para seus colaboradores.</p>
+                <small style="color: var(--laranja); display: block; margin-top: 15px; font-weight: bold;">Clique para ver mais <i class="fa-solid fa-chevron-down"></i></small>
+            </div>
+            <div class="vantagem-card" onclick="showVantagem('visibilidade')">
+                <i class="fa-solid fa-bullhorn icon-large" style="color: var(--laranja);"></i>
+                <h3 style="color: var(--azul-sopa); margin-bottom: 10px;">Visibilidade de Marca</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Associe sua marca a uma causa transparente e respeitada.</p>
+                <small style="color: var(--laranja); display: block; margin-top: 15px; font-weight: bold;">Clique para ver mais <i class="fa-solid fa-chevron-down"></i></small>
+            </div>
+            <div class="vantagem-card" onclick="showVantagem('relatorio')">
+                <i class="fa-solid fa-file-contract icon-large" style="color: var(--azul-sopa);"></i>
+                <h3 style="color: var(--azul-sopa); margin-bottom: 10px;">Transparência e Dados</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Relatórios detalhados de impacto das suas doações.</p>
+                <small style="color: var(--laranja); display: block; margin-top: 15px; font-weight: bold;">Clique para ver mais <i class="fa-solid fa-chevron-down"></i></small>
+            </div>
+        </div>
+
+        <div id="vantagem-panel" class="vantagem-panel">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <h3 id="vantagem-title" style="color: var(--azul-sopa); font-size: 1.8rem;"></h3>
+                <button onclick="closeVantagem()" class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fa-solid fa-xmark"></i> Fechar</button>
+            </div>
+            <p id="vantagem-desc" style="color: var(--text-light); line-height: 1.6; font-size: 1.1rem;"></p>
+        </div>
+
+        <div class="parceiros-atuais">
+            <h2 style="color: var(--azul-sopa); font-size: 2.2rem; margin-bottom: 10px;">Marcas que confiam no nosso trabalho</h2>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Conheça a rede de empresas que nos ajudam a manter nosso compromisso diário.</p>
+            
+            <div class="logos-grid">
+                <div class="logo-placeholder">Logo Parceiro 1</div>
+                <div class="logo-placeholder">Logo Parceiro 2</div>
+                <div class="logo-placeholder">Logo Parceiro 3</div>
+                <div class="logo-placeholder">Logo Parceiro 4</div>
+                <div class="logo-placeholder">Logo Parceiro 5</div>
+                <div class="logo-placeholder">Logo Parceiro 6</div>
+            </div>
+        </div>
+    </div>
+
     <div id="manual" class="page container">
         <div class="hero-manual">
             <div class="hero-manual-text">
@@ -715,6 +861,35 @@
         function closeODSDetails() {
             document.getElementById('ods-details-panel').style.display = 'none';
         }
+
+        /* Funções da nova aba Seja um Parceiro */
+        function showVantagem(tipo) {
+            const panel = document.getElementById('vantagem-panel');
+            const title = document.getElementById('vantagem-title');
+            const desc = document.getElementById('vantagem-desc');
+            
+            panel.style.display = 'block';
+
+            if(tipo === 'esg') {
+                title.innerHTML = '<i class="fa-solid fa-leaf" style="color: var(--verde); margin-right: 10px;"></i> Fortalecimento ESG';
+                desc.innerHTML = 'Através da parceria com o Instituto Sopa, sua empresa implementa ações práticas e mensuráveis que atendem às exigências do pilar "Social" (S) do ESG. Impactamos a comunidade local, reduzindo desigualdades e promovendo a inclusão, o que eleva o valor sustentável da sua marca no mercado.';
+            } else if(tipo === 'engajamento') {
+                title.innerHTML = '<i class="fa-solid fa-users-gear" style="color: var(--azul-claro); margin-right: 10px;"></i> Engajamento Interno';
+                desc.innerHTML = 'Criamos oportunidades de voluntariado corporativo sob medida para a sua equipe. Colaboradores engajados em causas sociais apresentam maior retenção, orgulho de pertencer à empresa e desenvolvem habilidades de liderança e empatia em um ambiente fora do escritório.';
+            } else if(tipo === 'visibilidade') {
+                title.innerHTML = '<i class="fa-solid fa-bullhorn" style="color: var(--laranja); margin-right: 10px;"></i> Visibilidade de Marca';
+                desc.innerHTML = 'Sua marca estará presente em nossos eventos, relatórios anuais, redes sociais e materiais de comunicação. Mostre aos seus clientes e stakeholders que a sua empresa é socialmente responsável e se importa ativamente com o desenvolvimento da comunidade onde está inserida.';
+            } else if(tipo === 'relatorio') {
+                title.innerHTML = '<i class="fa-solid fa-file-contract" style="color: var(--azul-sopa); margin-right: 10px;"></i> Transparência e Dados';
+                desc.innerHTML = 'Trabalhamos com extrema seriedade na prestação de contas. Oferecemos relatórios periódicos detalhados contendo métricas claras de impacto (número de refeições servidas, famílias acolhidas, etc.), para que sua empresa saiba exatamente como o investimento social está sendo aplicado.';
+            }
+        }
+
+        function closeVantagem() {
+            document.getElementById('vantagem-panel').style.display = 'none';
+        }
     </script>
 </body>
 </html>
+
+```
