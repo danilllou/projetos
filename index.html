@@ -426,20 +426,17 @@ A nova seção inclui um painel de vantagens interativo (clicável) voltado para
             margin-top: 2rem;
         }
 
-        .logo-placeholder {
-            width: 160px;
-            height: 90px;
-            background: var(--bg-gray);
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
+.logo-placeholder {
+    width: 160px;
+    height: 90px;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.logo-placeholder:hover {
+    transform: scale(1.05);
+}
 
         .logo-placeholder:hover {
             background: var(--creme);
@@ -756,14 +753,12 @@ A nova seção inclui um painel de vantagens interativo (clicável) voltado para
             <h2 style="color: var(--azul-sopa); font-size: 2.2rem; margin-bottom: 10px;">Marcas que confiam no nosso trabalho</h2>
             <p style="color: var(--text-light); margin-bottom: 2rem;">Conheça a rede de empresas que nos ajudam a manter nosso compromisso diário.</p>
             
-            <div class="logos-grid">
-                <div class="logo-placeholder">Logo Parceiro 1</div>
-                <div class="logo-placeholder">Logo Parceiro 2</div>
-                <div class="logo-placeholder">Logo Parceiro 3</div>
-                <div class="logo-placeholder">Logo Parceiro 4</div>
-                <div class="logo-placeholder">Logo Parceiro 5</div>
-                <div class="logo-placeholder">Logo Parceiro 6</div>
-            </div>
+<div class="logos-grid">
+    <img class="logo-placeholder" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1sRX55IdEMLlC_FJVNKhBiCWdoj15QyddZQ&s" alt="Parceiro 1">
+    <img class="logo-placeholder" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7WfZOZ7cg6Ivnj4gYQpzR2x2EBGoNic7SJA&s" alt="Parceiro 2">
+    <img class="logo-placeholder" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKod3Vc8BDlC4szrMEC2C3xcj03iL_IksIw&s" alt="Parceiro 3">
+    <img class="logo-placeholder" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCRoJ0K8SRwuOPPY02jGPVTbDVjFtXFbQ95w&s" alt="Parceiro 4">
+</div>
         </div>
     </div>
 
